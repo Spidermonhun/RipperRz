@@ -8,8 +8,8 @@ from telebot.types import Message
 from concurrent.futures import ThreadPoolExecutor
 
 # ---------------- CONFIG -------------------
-BOT_TOKEN = os.getenv("BOT_TOKEN", "8653599069:AAFEI7obrqVmAgXe6RiJBuW0h91gqYQ6XCc")
-OWNER_ID = int(os.getenv("OWNER_ID", 6961586523))
+BOT_TOKEN = os.getenv("BOT_TOKEN", "Your_Token")
+OWNER_ID = int(os.getenv("OWNER_ID", 1234567890))
 AUTHORIZED = {OWNER_ID}
 BANNED_USERS = set()
 RAZOR_SITES = ["api.razorpay.com", "x.razorpay.com"]
