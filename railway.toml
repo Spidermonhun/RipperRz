@@ -1,0 +1,30 @@
+service {
+  name="razorripper-bot"
+  region="oregon"
+}
+
+build {
+  builder="dockerfile"
+}
+
+env {
+  name="PYTHON_VERSION"
+  value="3.11"
+}
+
+[[variables]]
+name="BOT_TOKEN"
+description="Your @BotFather token"
+
+[[variables]]
+name="OWNER_ID"
+description="Your Telegram ID"
+
+[[domains]]
+domain="$PROJECT_NAME.up.railway.app"
+target_port=8080
+
+[[http_healthcheck]]
+path="/healthz"
+interval_ms=60_000
+timeout_ms=5_00₀₀₀₀₀₃₃₂₁₂₃₁₂₃₁₂₃₁₂₃₁₂₃₁₂₃₁₂₃₁₂₃₁₂₃¹²³¹²³¹²³¹²³¹²³¹²³¹²³¹²³¹²³¹²³¹²³¹²³
