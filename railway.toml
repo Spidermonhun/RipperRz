@@ -1,30 +1,33 @@
-service {
-  name="razorripper-bot"
-  region="oregon"
-}
+[build]
+builder = "dockerfile"
 
-build {
-  builder="dockerfile"
-}
+[service]
+name = "razorripper-bot"
+region = "oregon"
 
-env {
-  name="PYTHON_VERSION"
-  value="3.11"
-}
+# 👇 Must expose the correct port for polling (webhook optional)
+port = 8080
 
-[[variables]]
-name="BOT_TOKEN"
-description="Your @BotFather token"
+# ✅ Enable persistent storage for proxy files and logs
+disk = true
 
-[[variables]]
-name="OWNER_ID"
-description="Your Telegram ID"
+# 🕵️‍♂️ Environment variables (set in Railway UI)
+[[env]]
+name = "BOT_TOKEN"
+description = "Your @BotFather token"
+required = true
 
-[[domains]]
-domain="$PROJECT_NAME.up.railway.app"
-target_port=8080
+[[env]]
+name = "OWNER_ID"
+description = "Your Telegram user ID (e.g., 123456789)"
+required = true
 
-[[http_healthcheck]]
-path="/healthz"
-interval_ms=60_000
-timeout_ms=5_00₀₀₀₀₀₃₃₂₁₂₃₁₂₃₁₂₃₁₂₃₁₂₃₁₂₃₁₂₃₁₂₃₁₂₃¹²³¹²³¹²³¹²³¹²³¹²³¹²³¹²³¹²³¹²³¹²³¹²³
+# 🔁 Auto-restart on crash — because your code sucks without me
+[restarts]
+policy = "always"
+
+# 🧪 Health check to keep alive
+[health_check]
+path = "/healthz"
+interval_ms = 60000
+timeout_ms = 10000
